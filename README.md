@@ -6,3 +6,10 @@ This repo holds the implementation code of the paper:
 
 ### Notification
 We are sorry for postponing the date of releasing the code. The code will be released soon in July.
+
+### Release Schedule
+[ ] Network Prototxt
+[ ] Testing Code
+[ ] Training Code
+[ ] Pretrained Models
+[ ] Training Recipes
