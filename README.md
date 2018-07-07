@@ -14,3 +14,15 @@ We are sorry for postponing the date of releasing the code. The code will be rel
 - [ ] Training Code
 - [ ] Pretrained Models
 - [ ] Training Recipes
+
+### Citation
+If you find our research useful, please cite the paper:
+```
+@InProceedings{Sun_2018_CVPR,
+author = {Sun, Shuyang and Kuang, Zhanghui and Sheng, Lu and Ouyang, Wanli and Zhang, Wei},
+title = {Optical Flow Guided Feature: A Fast and Robust Motion Representation for Video Action Recognition},
+booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2018}
+}
+```
