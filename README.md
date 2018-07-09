@@ -17,6 +17,7 @@ Too busy these days. Will update soon.
 - [ ] Pretrained Models
 - [ ] Training Recipes
 - [ ] Building Docs
+
 ### Citation
 If you find our research useful, please cite the paper:
 ```
@@ -28,3 +29,6 @@ month = {June},
 year = {2018}
 }
 ```
+
+### Related Project
+[Temporal Segment Networks](https://github.com/yjxiong/temporal-segment-networks)
