@@ -27,7 +27,7 @@ For training use, first modify the file **make_train.sh** with your own lib path
 For testing, you can simply run ```make pycaffe``` to make all stuff well prepared.
 
 ### Training
-You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your dir should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and the training recipes will be available soon.
+You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and the training recipes will be available soon.
 
 ### Testing
 You need to create another directory ```proto_splits``` under the same folder of ```model```. Our test code use pycaffe to call the functions defined in C++, therefore, we need to write some temporary files for synchronization. Remember to clean the temporary files everytime you make a new test.
@@ -66,3 +66,6 @@ year = {2018}
 
 ### Related Project
 [Temporal Segment Networks](https://github.com/yjxiong/temporal-segment-networks)
+
+### Contact
+You can contact Mr.Shuyang Sun (Please do NOT call me with the title Prof., Dr., or any other kinds of weird prefixes. I'm still a master student....) by sending email to shuyang.sun@sydney.edu.au
