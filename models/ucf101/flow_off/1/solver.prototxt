@@ -1,0 +1,32 @@
+net: "models/ucf101/flow_off/1/train.prototxt"
+
+# testing parameter
+test_state: { stage: "total" }
+test_iter: 3783
+test_interval: 4000
+test_initialization: true
+
+# output
+display: 20
+average_loss: 20
+snapshot: 500
+snapshot_prefix: "models/ucf101/flow_off/1/model/flow_off"
+debug_info: false
+
+# learning rate
+base_lr: 0.02
+lr_policy: "cosine"
+num_cycle: 6
+max_iter: 24000
+iter_size: 2
+
+# parameter of SGD
+momentum: 0.9
+weight_decay: 0.0005
+clip_gradients: 40
+
+# GPU setting
+solver_mode: GPU
+device_id: [0,1,2,3]
+richness: 200
+

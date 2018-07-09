@@ -1,0 +1,6 @@
+
+DATASET=$1
+METHOD=$2
+SPLIT=$3
+rm -f visualize/*
+rm -f models/$DATASET/$METHOD/$SPLIT/proto_splits/*
