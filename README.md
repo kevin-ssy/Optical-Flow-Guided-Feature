@@ -3,7 +3,7 @@
 ![ ](head_pic.jpg)
 
 ### Update
-We've just release the code as a initial version. Further code, docs, models and training recipes will be available VERY soon.
+We've just release the code as an initial version. Further code, docs, models and training recipes will be available VERY soon.
 
 This repo holds the implementation code of the paper:
 
