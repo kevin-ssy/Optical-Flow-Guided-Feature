@@ -33,13 +33,13 @@ You need to make two folders before you launch your training. The one is ```logs
 You need to create another directory ```proto_splits``` under the same folder of ```model```. Our test code use pycaffe to call the functions defined in C++, therefore, we need to write some temporary files for synchronization. Remember to clean the temporary files everytime you make a new test.
 
 ### Results
-Due to the unexpected server migration, the original models for all 3 splits on UCF101 and HMDB51 were all lost. Therefore, we re-train the models on the first split of UCF101:
+Due to the unexpected server migration, our original models trained on all 3 splits of UCF101 and HMDB51 were all lost. Therefore, we re-train the models on the first split of UCF101:
 
-| RGB | OFF(RGB) | RGB DIFF | OFF(RGB DIFF) |   FLOW  | OFF(FLOW) |   Acc.  | 
+| RGB | OFF(RGB) | RGB DIFF | OFF(RGB DIFF) |   FLOW  | OFF(FLOW) |   Acc. (Acc. in Paper)  | 
 | :-: |    :-:   |    :-:   |      :-:      |   :-:   |    :-:    |   :-:   |
-|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  89.9%  |
-|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  93.1%  |
-| <ul><li>[x] </li></ul> |<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|  95.4%  |
+|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  89.9% (90.0%) |
+|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  93.1% (93.0%)|
+| <ul><li>[x] </li></ul> |<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|  95.4% (95.5%) |
 
 
 
@@ -50,7 +50,7 @@ Due to the unexpected server migration, the original models for all 3 splits on 
 - [x] Training Code
 - [ ] Pretrained Models
 - [ ] Training Recipes
-- [ ] Building Docs
+- [x] Building Docs
 
 ### Citation
 If you find our research useful, please cite the paper:
