@@ -3,7 +3,7 @@
 ![ ](head_pic.jpg)
 
 ### Update
-We've just release the code as an initial version. Further code, docs, models and training recipes will be available VERY soon.
+We've just released the code as an initial version. Further code, docs, models and training recipes will be available VERY soon.
 
 ---
 
@@ -22,15 +22,20 @@ You may refer to the project [TSN](https://github.com/yjxiong/temporal-segment-n
 
 ### Building Docs
 
-For training use, first modify the file **make_train.sh** with your own lib path filled in. Simply run ```sh make_train.sh```, the script will automatically build the caffe for you.
+For training use, first modify the file ```make_train.sh``` with your own lib path filled in. Simply run ```sh make_train.sh```, the script will automatically build the caffe for you.
 
 For testing, you can simply run ```make pycaffe``` to make all stuff well prepared.
 
 ### Training
-You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and the training recipes will be available soon.
+You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and reference will be available soon.
+
+The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies, please refer to our **[training recipes]()**.
+
 
 ### Testing
-You need to create another directory ```proto_splits``` under the same folder of ```model```. Our test code use pycaffe to call the functions defined in C++, therefore, we need to write some temporary files for synchronization. Remember to clean the temporary files everytime you make a new test.
+You need to create another directory ```proto_splits``` under the same folder of ```model```. Our test code use pycaffe to call the functions defined in C++, therefore, we need to write some temporary files for synchronization. Remember to clean the temporary files everytime you launch a new test. Run the script ```test.sh``` with your ```METHOD```, ```MODEL_NAME```, ```SPLIT``` and ```NUM_GPU``` specified. 
+
+The ```deploy_tpl.prototxt``` defines the network for reference. To transfer your network defined in ```train.prototxt``` into ```deploy_tpl.prototxt```, you may need to copy all the layers except the data layer and layers after each fully connected layer. As there are dynamic parameters defined in the ```deploy_tpl.prototxt```, e.g. ```$SOURCE $OVERSAMPLE_ID_PATH```, the format of the ```deploy_tpl.prototxt``` is a little bit different to the normal prototxt file.
 
 ### Results
 Due to the unexpected server migration, our original models trained on all 3 splits of UCF101 and HMDB51 were all lost. Therefore, we re-train the models on the first split of UCF101:
