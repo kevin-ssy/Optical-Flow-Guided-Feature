@@ -20,7 +20,7 @@ This repo holds the implementation code of the paper:
 
 You may refer to the project [TSN](https://github.com/yjxiong/temporal-segment-networks) to install these libs and prepare the data.
 
-### Building Docs
+### How to Build
 
 For training use, first modify the file ```make_train.sh``` with your own lib path filled in. Simply run ```sh make_train.sh```, the script will automatically build the caffe for you.
 
@@ -29,7 +29,7 @@ For testing, you can simply run ```make pycaffe``` to make all stuff well prepar
 ### Training
 You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and reference will be available soon.
 
-The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies, please refer to our **[training recipes]()**.
+The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies and observations not included in the paper, please refer to our **[training recipes]()**.
 
 
 ### Testing
