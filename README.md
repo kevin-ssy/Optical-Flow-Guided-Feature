@@ -43,8 +43,17 @@ Due to the unexpected server migration, our original models trained on all 3 spl
 | RGB | OFF(RGB) | RGB DIFF | OFF(RGB DIFF) |   FLOW  | OFF(FLOW) |   Acc. (Acc. in Paper)  | 
 | :-: |    :-:   |    :-:   |      :-:      |   :-:   |    :-:    |   :-:   |
 |<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  89.9% (90.0%) |
-|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  93.1% (93.0%)|
+|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|  93.2% (93.0%)|
 | <ul><li>[x] </li></ul> |<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|  95.4% (95.5%) |
+
+### Models
+Models on Google Drive will be available soon.
+
+| Model Name | Init Model | Reference Model |
+| :-:        | :-:        | :-:             |
+| OFF(RGB)      | [Baidu Pan](https://pan.baidu.com/s/1LSgYPFuy0rWYZkj9zu0Z1A) <br> [Google Drive](#) | [Baidu Pan](https://pan.baidu.com/s/1EmS0w3kIivbTnQkSBaNZIA) <br> [Google Drive](#) |
+| OFF(RGB DIFF) | [Baidu Pan](https://pan.baidu.com/s/1kV6djzC6wU6T6x9F6D41CA) <br> [Google Drive](#) | [Baidu Pan](https://pan.baidu.com/s/1xBHf2SOAbbO65vkpK2FRaQ) <br> [Google Drive](#) |
+| OFF(Flow)     | [Baidu Pan](https://pan.baidu.com/s/1oyJebhCMJDuaC6EZ0GdHDA) <br> [Google Drive](#) | [Baidu Pan](https://pan.baidu.com/s/1-CXs8WPQnG1aadA6Z3daqA) <br> [Google Drive](#) |
 
 
 
@@ -53,7 +62,7 @@ Due to the unexpected server migration, our original models trained on all 3 spl
 - [x] Network Prototxt
 - [x] Testing Code
 - [x] Training Code
-- [ ] Pretrained Models
+- [x] Pretrained Models
 - [ ] Training Recipes
 - [x] Building Docs
 
