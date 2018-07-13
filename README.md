@@ -3,7 +3,7 @@
 ![ ](head_pic.jpg)
 
 ### Update
-We've just released the code as an initial version. Further code, docs, models and training recipes will be available VERY soon.
+All the codes and models has been released! We'll post a blog to discuss the details and observations in OFF.
 
 ---
 
