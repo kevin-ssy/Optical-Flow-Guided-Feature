@@ -3,7 +3,7 @@
 ![ ](head_pic.jpg)
 
 ### Update
-All the codes and models has been released! We'll post a blog to discuss the details and observations in OFF.
+All the codes and models have been released! We'll post a blog to discuss the details and observations in OFF.
 
 ---
 
