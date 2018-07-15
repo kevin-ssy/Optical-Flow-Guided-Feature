@@ -791,7 +791,6 @@ layer { name: "dropout" top: "global_pool" bottom: "global_pool" type: "Dropout"
 
 
 
-
 ###################################### motion_3a ######################################
 
 
@@ -859,7 +858,7 @@ layer {
   top: "last_frame_3a"
   slice_param {
     axis: 1
-    slice_point: 768# 24*1024
+    slice_point: 768
   }
   include { phase: TRAIN }
 }
@@ -997,33 +996,34 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_3a" 
-  type: "Reshape" 
-  bottom: "inception_3a/output" 
-  top: "reshape_spatial_frames_3a" 
-  reshape_param { shape { dim: [16, -1, 28, 28] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3a" 
+#   type: "Reshape" 
+#   bottom: "inception_3a/output" 
+#   top: "reshape_spatial_frames_3a" 
+#   reshape_param { shape { dim: [16, -1, 28, 28] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_3a" 
-  type: "Reshape" 
-  bottom: "inception_3a/output" 
-  top: "reshape_spatial_frames_3a" 
-  reshape_param { shape { dim: [1, -1, 28, 28] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3a" 
+#   type: "Reshape" 
+#   bottom: "inception_3a/output" 
+#   top: "reshape_spatial_frames_3a" 
+#   reshape_param { shape { dim: [1, -1, 28, 28] } } 
+#   include { phase: TEST }
+# } 
+
 
 layer {
   name: "slice_motion_first_3a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3a"
+  bottom: "inception_3a/output"
   top: "spatial_frames_3a"
   top: "spatial_frame_3a"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -1031,12 +1031,12 @@ layer {
 layer {
   name: "slice_motion_first_3a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3a"
+  bottom: "inception_3a/output"
   top: "spatial_frames_3a"
   top: "spatial_frame_3a"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -1403,33 +1403,34 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_3b" 
-  type: "Reshape" 
-  bottom: "inception_3b/output" 
-  top: "reshape_spatial_frames_3b" 
-  reshape_param { shape { dim: [16, -1, 28, 28] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3b" 
+#   type: "Reshape" 
+#   bottom: "inception_3b/output" 
+#   top: "reshape_spatial_frames_3b" 
+#   reshape_param { shape { dim: [16, -1, 28, 28] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_3b" 
-  type: "Reshape" 
-  bottom: "inception_3b/output" 
-  top: "reshape_spatial_frames_3b" 
-  reshape_param { shape { dim: [1, -1, 28, 28] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3b" 
+#   type: "Reshape" 
+#   bottom: "inception_3b/output" 
+#   top: "reshape_spatial_frames_3b" 
+#   reshape_param { shape { dim: [1, -1, 28, 28] } } 
+#   include { phase: TEST }
+# } 
+
 
 layer {
   name: "slice_motion_first_3b"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3b"
+  bottom: "inception_3b/output"
   top: "spatial_frames_3b"
   top: "spatial_frame_3b"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -1437,12 +1438,12 @@ layer {
 layer {
   name: "slice_motion_first_3b"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3b"
+  bottom: "inception_3b/output"
   top: "spatial_frames_3b"
   top: "spatial_frame_3b"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -1471,7 +1472,6 @@ layer {
   reshape_param { shape { dim: [24, -1, 28, 28] } } 
   include { phase: TEST }
 }
-
 
 
 
@@ -1810,33 +1810,33 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_3c" 
-  type: "Reshape" 
-  bottom: "inception_3c/output" 
-  top: "reshape_spatial_frames_3c" 
-  reshape_param { shape { dim: [16, -1, 14, 14] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3c" 
+#   type: "Reshape" 
+#   bottom: "inception_3c/output" 
+#   top: "reshape_spatial_frames_3c" 
+#   reshape_param { shape { dim: [16, -1, 14, 14] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_3c" 
-  type: "Reshape" 
-  bottom: "inception_3c/output" 
-  top: "reshape_spatial_frames_3c" 
-  reshape_param { shape { dim: [1, -1, 14, 14] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_3c" 
+#   type: "Reshape" 
+#   bottom: "inception_3c/output" 
+#   top: "reshape_spatial_frames_3c" 
+#   reshape_param { shape { dim: [1, -1, 14, 14] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_3c"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3c"
+  bottom: "inception_3c/output"
   top: "spatial_frames_3c"
   top: "spatial_frame_3c"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -1844,12 +1844,12 @@ layer {
 layer {
   name: "slice_motion_first_3c"
   type: "Slice"
-  bottom: "reshape_spatial_frames_3c"
+  bottom: "inception_3c/output"
   top: "spatial_frames_3c"
   top: "spatial_frame_3c"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -1878,7 +1878,6 @@ layer {
   reshape_param { shape { dim: [24, -1, 14, 14] } } 
   include { phase: TEST }
 }
-
 layer {
   name: "motion_spatial_down_3c"
   type: "Convolution"
@@ -2535,33 +2534,33 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_4a" 
-  type: "Reshape" 
-  bottom: "inception_4a/output" 
-  top: "reshape_spatial_frames_4a" 
-  reshape_param { shape { dim: [16, -1, 14, 14] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4a" 
+#   type: "Reshape" 
+#   bottom: "inception_4a/output" 
+#   top: "reshape_spatial_frames_4a" 
+#   reshape_param { shape { dim: [16, -1, 14, 14] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_4a" 
-  type: "Reshape" 
-  bottom: "inception_4a/output" 
-  top: "reshape_spatial_frames_4a" 
-  reshape_param { shape { dim: [1, -1, 14, 14] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4a" 
+#   type: "Reshape" 
+#   bottom: "inception_4a/output" 
+#   top: "reshape_spatial_frames_4a" 
+#   reshape_param { shape { dim: [1, -1, 14, 14] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_4a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4a"
+  bottom: "inception_4a/output"
   top: "spatial_frames_4a"
   top: "spatial_frame_4a"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -2569,12 +2568,12 @@ layer {
 layer {
   name: "slice_motion_first_4a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4a"
+  bottom: "inception_4a/output"
   top: "spatial_frames_4a"
   top: "spatial_frame_4a"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -2937,33 +2936,33 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_4b" 
-  type: "Reshape" 
-  bottom: "inception_4b/output" 
-  top: "reshape_saptial_frames_4b" 
-  reshape_param { shape { dim: [16, -1, 14, 14] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4b" 
+#   type: "Reshape" 
+#   bottom: "inception_4b/output" 
+#   top: "reshape_saptial_frames_4b" 
+#   reshape_param { shape { dim: [16, -1, 14, 14] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_4b" 
-  type: "Reshape" 
-  bottom: "inception_4b/output" 
-  top: "reshape_saptial_frames_4b" 
-  reshape_param { shape { dim: [1, -1, 14, 14] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4b" 
+#   type: "Reshape" 
+#   bottom: "inception_4b/output" 
+#   top: "reshape_saptial_frames_4b" 
+#   reshape_param { shape { dim: [1, -1, 14, 14] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_4b"
   type: "Slice"
-  bottom: "reshape_saptial_frames_4b"
+  bottom: "inception_4b/output"
   top: "spatial_frames_4b"
   top: "spatial_frame_4b"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -2971,12 +2970,12 @@ layer {
 layer {
   name: "slice_motion_first_4b"
   type: "Slice"
-  bottom: "reshape_saptial_frames_4b"
+  bottom: "inception_4b/output"
   top: "spatial_frames_4b"
   top: "spatial_frame_4b"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -3337,38 +3336,15 @@ layer {
 } 
 
 
-
-
-
-
-
-layer { 
-  name: "reshape_rgb_frames_4c" 
-  type: "Reshape" 
-  bottom: "inception_4c/output" 
-  top: "reshape_spatial_frames_4c" 
-  reshape_param { shape { dim: [16, -1, 14, 14] } } 
-  include { phase: TRAIN }
-} 
-
-layer { 
-  name: "reshape_rgb_frames_4c" 
-  type: "Reshape" 
-  bottom: "inception_4c/output" 
-  top: "reshape_spatial_frames_4c" 
-  reshape_param { shape { dim: [1, -1, 14, 14] } } 
-  include { phase: TEST }
-} 
-
 layer {
   name: "slice_motion_first_4c"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4c"
+  bottom: "inception_4c/output"
   top: "spatial_frames_4c"
   top: "spatial_frame_4c"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -3376,12 +3352,12 @@ layer {
 layer {
   name: "slice_motion_first_4c"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4c"
+  bottom: "inception_4c/output"
   top: "spatial_frames_4c"
   top: "spatial_frame_4c"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -3486,48 +3462,6 @@ layer {
   dropout_param { dropout_ratio: 0.8 } 
 }
 
-# layer {
-#   name: "eltwise_second_motion_4c"
-#   type: "Eltwise"
-#   bottom: "second_frames_4c"
-#   bottom: "last_second_frames_4c"
-#   top: "raw_motion_second_4c"
-#   eltwise_param {
-#     operation: SUM
-#     coeff: -1 
-#     coeff: 1  # last frames - first frames
-#   }
-# }
-
-# layer {
-#   name: "eltwise_blank_4c"
-#   type: "Eltwise"
-#   bottom: "first_frame_4c"
-#   bottom: "first_frame_4c"
-#   top: "blank_4c"
-#   eltwise_param {
-#     operation: SUM
-#     coeff: -1
-#     coeff: 1  # last frames - first frames
-#   }
-# }
-
-# layer {
-#   name: "pad_second_4c"
-#   type: "Concat"
-#   bottom: "raw_motion_second_4c"
-#   bottom: "blank_4c"
-#   top: "motion_second_4c"
-# }
-
-# layer { 
-#   name: "reshape_motion_second_frames_4c" 
-#   type: "Reshape" 
-#   bottom: "motion_second_4c" 
-#   top: "reshape_motion_second_frames_4c" 
-#   reshape_param { shape { dim: [-1, 128, 14, 14] } } 
-#   # include { phase: TRAIN }
-# } 
 
 
 layer{
@@ -3745,33 +3679,33 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_4d" 
-  type: "Reshape" 
-  bottom: "inception_4d/output" 
-  top: "reshape_spatial_frames_4d" 
-  reshape_param { shape { dim: [16, -1, 14, 14] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4d" 
+#   type: "Reshape" 
+#   bottom: "inception_4d/output" 
+#   top: "reshape_spatial_frames_4d" 
+#   reshape_param { shape { dim: [16, -1, 14, 14] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_4d" 
-  type: "Reshape" 
-  bottom: "inception_4d/output" 
-  top: "reshape_spatial_frames_4d" 
-  reshape_param { shape { dim: [1, -1, 14, 14] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_4d" 
+#   type: "Reshape" 
+#   bottom: "inception_4d/output" 
+#   top: "reshape_spatial_frames_4d" 
+#   reshape_param { shape { dim: [1, -1, 14, 14] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_4d"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4d"
+  bottom: "inception_4d/output"
   top: "spatial_frames_4d"
   top: "spatial_frame_4d"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -3779,12 +3713,12 @@ layer {
 layer {
   name: "slice_motion_first_4d"
   type: "Slice"
-  bottom: "reshape_spatial_frames_4d"
+  bottom: "inception_4d/output"
   top: "spatial_frames_4d"
   top: "spatial_frame_4d"
   slice_param {
-    axis: 1
-    slice_point: 384 #6144 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -4308,6 +4242,7 @@ layer { name: "fc-action-motion_14" type: "InnerProduct" bottom: "global_pool_mo
 
 
 
+
 #######################################  FC & Loss & Accuracy Motion #######################################
 
 ###################################### motion_5a ######################################
@@ -4512,33 +4447,33 @@ layer {
 } 
 
 
-layer { 
-  name: "reshape_rgb_frames_5a" 
-  type: "Reshape" 
-  bottom: "inception_5a/output" 
-  top: "reshape_spatial_frames_5a" 
-  reshape_param { shape { dim: [16, -1, 7, 7] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_5a" 
+#   type: "Reshape" 
+#   bottom: "inception_5a/output" 
+#   top: "reshape_spatial_frames_5a" 
+#   reshape_param { shape { dim: [16, -1, 7, 7] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_5a" 
-  type: "Reshape" 
-  bottom: "inception_5a/output" 
-  top: "reshape_spatial_frames_5a" 
-  reshape_param { shape { dim: [1, -1, 7, 7] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_5a" 
+#   type: "Reshape" 
+#   bottom: "inception_5a/output" 
+#   top: "reshape_spatial_frames_5a" 
+#   reshape_param { shape { dim: [1, -1, 7, 7] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_5a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_5a"
+  bottom: "inception_5a/output"
   top: "spatial_frames_5a"
   top: "spatial_frame_5a"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -4546,12 +4481,12 @@ layer {
 layer {
   name: "slice_motion_first_5a"
   type: "Slice"
-  bottom: "reshape_spatial_frames_5a"
+  bottom: "inception_5a/output"
   top: "spatial_frames_5a"
   top: "spatial_frame_5a"
   slice_param {
-    axis: 1
-    slice_point: 384 #674 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -4580,6 +4515,7 @@ layer {
   reshape_param { shape { dim: [24, -1, 7, 7] } } 
   include { phase: TEST }
 }
+
 layer {
   name: "motion_spatial_down_5a"
   type: "Convolution"
@@ -4916,33 +4852,33 @@ layer {
 
 
 
-layer { 
-  name: "reshape_rgb_frames_5b" 
-  type: "Reshape" 
-  bottom: "inception_5b/output" 
-  top: "reshape_spatial_frames_5b" 
-  reshape_param { shape { dim: [16, -1, 7, 7] } } 
-  include { phase: TRAIN }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_5b" 
+#   type: "Reshape" 
+#   bottom: "inception_5b/output" 
+#   top: "reshape_spatial_frames_5b" 
+#   reshape_param { shape { dim: [16, -1, 7, 7] } } 
+#   include { phase: TRAIN }
+# } 
 
-layer { 
-  name: "reshape_rgb_frames_5b" 
-  type: "Reshape" 
-  bottom: "inception_5b/output" 
-  top: "reshape_spatial_frames_5b" 
-  reshape_param { shape { dim: [1, -1, 7, 7] } } 
-  include { phase: TEST }
-} 
+# layer { 
+#   name: "reshape_rgb_frames_5b" 
+#   type: "Reshape" 
+#   bottom: "inception_5b/output" 
+#   top: "reshape_spatial_frames_5b" 
+#   reshape_param { shape { dim: [1, -1, 7, 7] } } 
+#   include { phase: TEST }
+# } 
 
 layer {
   name: "slice_motion_first_5b"
   type: "Slice"
-  bottom: "reshape_spatial_frames_5b"
+  bottom: "inception_5b/output"
   top: "spatial_frames_5b"
   top: "spatial_frame_5b"
   slice_param {
-    axis: 1
-    slice_point: 96# 24*1024
+    axis: 0
+    slice_point: 96  # 16x6
   }
   include { phase: TRAIN }
 }
@@ -4950,12 +4886,12 @@ layer {
 layer {
   name: "slice_motion_first_5b"
   type: "Slice"
-  bottom: "reshape_spatial_frames_5b"
+  bottom: "inception_5b/output"
   top: "spatial_frames_5b"
   top: "spatial_frame_5b"
   slice_param {
-    axis: 1
-    slice_point: 384 #674 # 3072# 24*1024
+    axis: 0
+    slice_point: 24  # 16x24
   }
   include { phase: TEST }
 }
@@ -4984,6 +4920,7 @@ layer {
   reshape_param { shape { dim: [24, -1, 7, 7] } } 
   include { phase: TEST }
 }
+
 
 layer {
   name: "motion_spatial_down_5b"
@@ -5270,4 +5207,3 @@ layer { name: "fc-action-motion" type: "InnerProduct" bottom: "global_pool_motio
     bias_filler { type: "constant" value: 0 } 
   }
 }
-
