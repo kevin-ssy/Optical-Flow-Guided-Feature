@@ -25,9 +25,11 @@ for mid, motion_sample in enumerate(motion_score):
         if motion_sample[2] == flow_sample[2]:
             aligned_flow_score[mid] = flow_sample
 
-# RGB : RGB OFF : RGB OFF 14 : FLOW : FLOW OFF -- 1:1.6:0.4: (1:2)*0.9
-# RGB : RGB OFF : (RGB DIFF : RGB DIFF OFF) -- 1:1.8: (1:1.8)*0.8
-# RGB : RGB OFF : FLOW : FLOW OFF : RGB DIFF OFF -- 1:1.6:0.9:1.8:0.6
+# Ensemble Params:
+# RGB : RGB OFF : RGB OFF 14 = 1 : 2 : 1 -- 90.5%
+# RGB : RGB OFF : (RGB DIFF : RGB DIFF OFF) = 1:1.8: (1:1.8)*0.8 -- 93.2%
+# RGB : RGB OFF : RGB OFF 14 : FLOW : FLOW OFF = 1:1.6:0.4: (1:2)*0.9 -- 95.3%
+# RGB : RGB OFF : FLOW : FLOW OFF : RGB DIFF OFF = 1:1.6:0.9:1.8:0.6 -- 95.5%
 # 0~25: Scores from Feature Generation Network
 # 25~49: Score from OFF-sub-network on 7x7
 # 49~73: Score from OFF-sub-network on 14x14
@@ -37,7 +39,7 @@ video_pred = [np.argmax(
 
    + default_aggregation_func(y[0][:25, ...], normalization=False, crop_agg=np.max) * 0.9 
    +  default_aggregation_func(y[0][25:49, ...], normalization=False, crop_agg=np.max) * 1.8
-   +  default_aggregation_func(z[0][25:49, ...], normalization=False, crop_agg=np.max) * 0.4
+   +  default_aggregation_func(z[0][25:49, ...], normalization=False, crop_agg=np.max) * 0.6
 )
    for x,y,z in zip(motion_score, aligned_flow_score, diff_score)]
 
