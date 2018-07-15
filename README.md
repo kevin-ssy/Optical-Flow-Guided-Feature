@@ -51,7 +51,7 @@ Models on Google Drive will be available soon.
 
 | Model Name | Init Model | Reference Model |
 | :-:        | :-:        | :-:             |
-| OFF(RGB)      | [Baidu Pan](#) <br> [Google Drive](#) |
+| OFF(RGB)      | [Baidu Pan](https://pan.baidu.com/s/1LSgYPFuy0rWYZkj9zu0Z1A) <br> [Google Drive](#) | [Baidu Pan](#) <br> [Google Drive](#)
 | OFF(RGB DIFF) | [Baidu Pan](https://pan.baidu.com/s/1kV6djzC6wU6T6x9F6D41CA) <br> [Google Drive](#) | [Baidu Pan](https://pan.baidu.com/s/1xBHf2SOAbbO65vkpK2FRaQ) <br> [Google Drive](#) |
 | OFF(Flow)     | [Baidu Pan](https://pan.baidu.com/s/1oyJebhCMJDuaC6EZ0GdHDA) <br> [Google Drive](#) | [Baidu Pan](https://pan.baidu.com/s/1-CXs8WPQnG1aadA6Z3daqA) <br> [Google Drive](#) |
 
