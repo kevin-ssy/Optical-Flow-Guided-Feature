@@ -27,7 +27,7 @@ For training use, first modify the file ```make_train.sh``` with your own lib pa
 For testing, you can simply run ```make pycaffe``` to make all stuff well prepared.
 
 ### Training
-You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```. The models for initialization and reference will be available soon.
+You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```.
 
 The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies and observations not included in the paper, please refer to our **[training recipes]()**.
 
@@ -47,7 +47,6 @@ Due to the unexpected server migration, our original models trained on all 3 spl
 | <ul><li>[x] </li></ul> |<ul><li>[x] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[ ] </li></ul>|<ul><li>[x] </li></ul>|<ul><li>[x] </li></ul>|  95.3% (95.5%) |
 
 ### Models
-Models on Google Drive will be available soon.
 
 | Model Name | Init Model | Reference Model |
 | :-:        | :-:        | :-:             |
@@ -77,6 +76,9 @@ month = {June},
 year = {2018}
 }
 ```
+
+### License
+The codes in this repo are published under [MIT License](https://github.com/kevin-ssy/Optical-Flow-Guided-Feature/blob/master/LICENSE).
 
 ### Related Project
 [Temporal Segment Networks](https://github.com/yjxiong/temporal-segment-networks)
