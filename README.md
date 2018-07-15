@@ -37,7 +37,7 @@ You need to create another directory ```proto_splits``` under the same folder of
 
 The ```deploy_tpl.prototxt``` defines the network for reference. To transfer your network defined in ```train.prototxt``` into ```deploy_tpl.prototxt```, you may need to copy all the layers except the data layer and layers after each fully connected layer. As there are dynamic parameters defined in the ```deploy_tpl.prototxt```, e.g. ```$SOURCE $OVERSAMPLE_ID_PATH```, the format of the ```deploy_tpl.prototxt``` is a little bit different to the normal prototxt file.
 
-After testing, an aggregation operation is needed to fuse the scores from different sources. The script ```ensemble_test.sh``` may help you to aggregate the results with manually searched weights (though inelegant:( ). You can find those weights settings among the comments of the script ```ensemble_test.sh```.
+After testing, an aggregation operation is needed to fuse the scores from different sources. The script ```ensemble_test.sh``` may help you to aggregate results with manually searched weights (though inelegant:(......). You can find those weights settings among the comments of the script ```ensemble_test.sh```.
 
 ### Results
 Due to the unexpected server migration, our original models trained on all 3 splits of UCF101 and HMDB51 were all lost. Therefore, we re-train the models on the first split of UCF101:
