@@ -2,14 +2,9 @@
 
 ![ ](head_pic.jpg)
 
-### Update
-All the codes and models have been released! We'll post a blog to discuss the details and observations in OFF.
-
----
-
 This repo holds the implementation code of the paper:
 
-[Optical Flow Guided Feature: A Fast and Robust Motion Representation for Video Action Recognition](http://openaccess.thecvf.com/content_cvpr_2018/papers/Sun_Optical_Flow_Guided_CVPR_2018_paper.pdf), [Shuyang Sun](https://kevin-ssy.github.io/), [Zhanghui Kuang](http://jeffreykuang.github.io/index.html), [Lu Sheng](http://www.ee.cuhk.edu.hk/~lsheng/), [Wanli Ouyang](https://wlouyang.github.io/), [Wei Zhang](), CVPR 2018.
+[Optical Flow Guided Feature: A Fast and Robust Motion Representation for Video Action Recognition](http://openaccess.thecvf.com/content_cvpr_2018/papers/Sun_Optical_Flow_Guided_CVPR_2018_paper.pdf), [Shuyang Sun](https://kevin-ssy.github.io/), [Zhanghui Kuang](http://jeffreykuang.github.io/index.html), [Lu Sheng](http://www.ee.cuhk.edu.hk/~lsheng/), [Wanli Ouyang](https://wlouyang.github.io/), [Wei Zhang](http://www.statfe.com/), CVPR 2018.
 
 ### Prerequisites
 - OpenCV 2.4.12
@@ -29,7 +24,7 @@ For testing, you can simply run ```make pycaffe``` to make all stuff well prepar
 ### Training
 You need to make two folders before you launch your training. The one is ```logs``` under the root of this project, and the other is the ```model``` under the folder ```models/DATASET/METHOD/SPLIT/```. For instance, if you want to train ```RGB_OFF``` on the dataset ```UCF101 split 1```, then your ```model``` directory should be made under the path ```models/ucf101/RGB_OFF/1/```.
 
-The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies and observations not included in the paper, please refer to our **[training recipes]()**.
+The network structure for training is defined in ```train.prototxt```, and the hyperparameters are defined in ```solver.prototxt```. For detailed training strategies and observations not included in the paper, please refer to our **[training recipes](https://kevin-ssy.github.io/off/)**.
 
 
 ### Testing
@@ -57,16 +52,6 @@ Due to the unexpected server migration, our original models trained on all 3 spl
 | OFF(Flow)     | [Baidu Pan](https://pan.baidu.com/s/1oyJebhCMJDuaC6EZ0GdHDA) <br> [Google Drive](https://drive.google.com/file/d/1wdbspudWA3dhkzeCfHlbNgd8Hutv2eMb/view?usp=sharing) | [Baidu Pan](https://pan.baidu.com/s/1-CXs8WPQnG1aadA6Z3daqA) <br> [Google Drive](https://drive.google.com/file/d/1GdsHXrUEuoqtpTXptP1hch5Go-WK09I-/view?usp=sharing) |
 
 
-
-### Release Schedule
-- [x] Paper Link
-- [x] Network Prototxt
-- [x] Testing Code
-- [x] Training Code
-- [x] Pretrained Models
-- [ ] Training Recipes
-- [x] Building Docs
-
 ### Citation
 If you find our research useful, please cite the paper:
 ```
@@ -80,7 +65,7 @@ year = {2018}
 ```
 
 ### License
-The codes in this repo are published under [MIT License](https://github.com/kevin-ssy/Optical-Flow-Guided-Feature/blob/master/LICENSE).
+The codes in this repo are published under the [MIT License](https://github.com/kevin-ssy/Optical-Flow-Guided-Feature/blob/master/LICENSE).
 
 ### Related Project
 [Temporal Segment Networks](https://github.com/yjxiong/temporal-segment-networks)
