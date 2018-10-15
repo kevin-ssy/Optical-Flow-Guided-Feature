@@ -13,7 +13,8 @@ This repo holds the implementation code of the paper:
 - CUDNN 5
 - [Caffe Dependencies](http://caffe.berkeleyvision.org/install_apt.html)
 
-You may refer to the project [TSN](https://github.com/yjxiong/temporal-segment-networks) to install these libs and prepare the data.
+### Data Preparation
+You may refer to the document of the project [TSN](https://github.com/yjxiong/temporal-segment-networks#construct-file-lists-for-training-and-validation) to have the data of UCF-101 and HMDB-51 prepared.
 
 ### How to Build
 
