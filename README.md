@@ -72,4 +72,4 @@ The codes in this repo are published under the [MIT License](https://github.com/
 [Temporal Segment Networks](https://github.com/yjxiong/temporal-segment-networks)
 
 ### Contact
-You can contact Mr.Shuyang Sun (Please do NOT call me with the title Prof., Dr., or any other kinds of weird prefixes. I'm still a master student....) by sending email to shuyang.sun@sydney.edu.au
+You can contact Mr.Shuyang Sun (Please do NOT call me with the title Prof., Dr., or any other kinds of weird prefixes. I'm still a master student....) by sending email to kevin.sysun@gmail.com
